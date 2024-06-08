@@ -10,7 +10,8 @@ const App = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: "http://localhost:8080/trpc",
+/*           url: "http://localhost:8080/trpc", */
+          url: "https://kalendar-katolik-client.vercel.app/trpc",
           headers(_) {
             return { Authorization: "" };
           },
