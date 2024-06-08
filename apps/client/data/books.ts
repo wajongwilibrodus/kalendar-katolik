@@ -41,6 +41,10 @@ export const books: Book[] = [
     nameIdn: "Yoh",
   },
   {
+    namePorto: "Lc",
+    nameIdn: "Luk",
+  },
+  {
     namePorto: "2P",
     nameIdn: "2Pt",
   },
