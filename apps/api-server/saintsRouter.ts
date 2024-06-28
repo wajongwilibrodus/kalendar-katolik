@@ -35,6 +35,13 @@ const months = [
 export const saintsRouter = router({
   greeting: publicProcedure.query(() => "hello from trpc"),
 
+  getCalender: publicProcedure.query(async () => {
+    const data = await axios.get('http://calapi.inadiutorium.cz/api/v0/en/calendars/default/today');
+    const cal = data.data.celebrations[0];
+    return {title: cal.title, colour: cal.colour};
+
+  }),
+
   getSaints: publicProcedure.query(async () => {
     let listOfObj: TypeOFData[] = [];
     const today = new Date();
@@ -95,6 +102,7 @@ export const saintsRouter = router({
   getReadings: publicProcedure
     .input(
       z.object({
+        pb: z.string(),
         book: z.string(),
         chapter: z.number(),
         verses: z.array(z.number()),
@@ -108,7 +116,7 @@ export const saintsRouter = router({
       };
       await axios
         .get(
-          `https://alkitab.mobi/manggarai/${opts.input.book}/${opts.input.chapter}`,
+          `https://alkitab.mobi/${opts.input.pb}/${opts.input.book}/${opts.input.chapter}`,
         )
         .then((res) => {
           const $ = cheerio.load(res.data);

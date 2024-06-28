@@ -21,6 +21,7 @@ export const useTodayCalendar = () => {
 
 export const useReadings = (readings: Passage) => {
   const [bacaan, setBacaan] = useState<Injil>({
+    pb: "",
     book: "",
     chapter: 0,
     verses: [],
@@ -43,7 +44,7 @@ export const useTodaysReadings = () => {
     queryFn: () => getPassages(),
     select: (readings) =>
       readings.filter((reading: Passage) =>
-        ["evangile", "lecture_1"].includes(reading?.type),
+        ["evangile", "lecture_2", "lecture_1", "psaume"].includes(reading?.type),
       ),
   });
 };

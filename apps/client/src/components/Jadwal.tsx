@@ -35,7 +35,7 @@ export const Jadwal = () => {
     <h1>Error!</h1>;
   }
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 px-4 mx-auto items-center max-w-4xl  py-24 lg:py-56">
+    <div id="mass" className="grid grid-cols-1 gap-6 sm:grid-cols-3 px-4 mx-auto items-center max-w-4xl  py-24 lg:py-56">
       {(data[0]?.data as Greja[])?.map((greja) => {
         const image = greja.img;
         const date = hari[new Date().getDay()];

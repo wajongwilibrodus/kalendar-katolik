@@ -19,11 +19,11 @@ const Saints = () => {
     return <div>{error.message}</div>;
   }
   return (
-    <>
-      <h1 className="mt-10 text-center mb-4 text-2xl font-bold tracking-tight leading-none text-white md:text-3xl lg:text-4xl">
+    <div id="saints">
+      <h1 className="mt-10 text-center mb-4 text-2xl font-bold tracking-tight leading-none dark:text-white md:text-3xl lg:text-4xl">
         Saints Celebrated Today
       </h1>
-      <div className="mx-auto mt-10 px-8 max-w-4xl mb-20 h-fit">
+      <div className="mx-auto mt-10 px-8 max-w-4xl mb-20 h-96 overflow-auto">
         <Slider {...settings}>
           {saints.map((saint) => (
             <div
@@ -54,7 +54,7 @@ const Saints = () => {
           ))}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
 
