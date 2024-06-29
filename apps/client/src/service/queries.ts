@@ -25,7 +25,7 @@ export const useTodaysReadings = () => {
     queryFn: () => getPassages(),
     select: (readings) =>
       readings.filter((reading: Passage) =>
-        ["evangile", "lecture_2", "lecture_1", "psaume"].includes(reading?.type),
+        ["evangile", "lecture_2", "lecture_1"].includes(reading?.type),
       ),
   });
 };
