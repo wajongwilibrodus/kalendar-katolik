@@ -67,10 +67,11 @@ export function getBook(evangile: string) {
     book = books.filter((val) => val.namePorto === injil)[0]?.nameIdn;
   }
   pb = manggarai.includes(book) ? "manggarai" : pb;
-  const mzm =
-    book === "Mzm" &&
-    parseInt(/\(\d*\)/.exec(evangile.split(",")![0])![0].slice(1, -1));
-  return { pb, book, chapter: book === "Mzm" ? mzm : parseInt(bab), verses };
+  const chapter =
+    book === "Mzm"
+      ? parseInt(/\(\d*\)/.exec(evangile.split(",")![0])![0].slice(1, -1))
+      : parseInt(bab);
+  return { pb, book, chapter, verses };
 }
 
 export const arrayRange = (start: number, stop: number, step: number) => {

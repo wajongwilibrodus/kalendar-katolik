@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getCalendar, getPassages } from "./api";
 import { trpc } from "../trpc";
-import { getBook, Injil } from "../../data/books";
+import { getBook} from "../../data/books";
 import { Passage } from "../types/passage";
 
 export const useTodayPassages = () => {
@@ -19,24 +18,6 @@ export const useTodayCalendar = () => {
   });
 };
 
-export const useReadings = (readings: Passage) => {
-  const [bacaan, setBacaan] = useState<Injil>({
-    pb: "",
-    book: "",
-    chapter: 0,
-    verses: [],
-  });
-  useEffect(() => {
-    function handlePass(readings: Passage) {
-      if (readings?.ref) {
-        setBacaan(getBook(readings.ref));
-      }
-    }
-    handlePass(readings);
-  }, [readings]);
-
-  return trpc.getReadings.useQuery(bacaan, { enabled: !!bacaan });
-};
 
 export const useTodaysReadings = () => {
   return useQuery({
