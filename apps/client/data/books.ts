@@ -67,10 +67,9 @@ export function getBook(evangile: string) {
     book = books.filter((val) => val.namePorto === injil)[0]?.nameIdn;
   }
   pb = manggarai.includes(book) ? "manggarai" : pb;
-  const chapter =
-    book === "Mzm"
-      ? parseInt(/\(\d*\)/.exec(evangile.split(",")![0])![0].slice(1, -1))
-      : parseInt(bab);
+  const chapter = /\(\d*\)/.exec(evangile.split(",")![0])
+    ? parseInt(/\(\d*\)/.exec(evangile.split(",")![0])![0].slice(1, -1))
+    : parseInt(bab);
   return { pb, book, chapter, verses };
 }
 
